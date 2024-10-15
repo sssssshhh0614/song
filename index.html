@@ -5,63 +5,140 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="송설화의 포트폴리오">
-  <meta name="author" content="YHS">
-  <meta name="generator" content="HTML5">
-  <title>Intro</title>
-  <!-- 카카오톡, 인스타 등등 -->
+  <meta name="description" content="이 사이트에 대한 구체적인 소개를 적으시면 됩니다.">
+  <meta name="author" content="이 페이지의 저자로서 이니셜이나 머릿말 정도를 적으세요, 이름이나 이니셜을 적으세요.">
+  <meta name="generator" content="제작도구에 대한 설명을 적으세요.">
+  <title>HOME</title>
   <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="송설화의 포트폴리오" />
-  <meta property="og:title" content="Intro" />
-  <meta property="og:description" content="GDD, UXUI디자인, 레벨디자인 등 그외 모든 게임기획서 모음." />
-  <meta property="og:image" content="./images/name_seo.png" />
+  <meta property="og:site_name" content="사이트 이름을 적으세요." />
+  <meta property="og:title" content="타이틀 이름을 적으세요." />
+  <meta property="og:description" content="자신의 사이트에 대한 세부 설명을 적으세요." />
+  <meta property="og:image" content="./images/name_seo.jpg" />
   <!-- 아텐츠주소 대신 자신의 웹페이지 주소로 바꾸세요 -->
-  <meta property="og:url" content="https://atentsgamedesignsite19.netlify.app" />
+  <meta property="og:url" content="https://atentsgame.com" />
   <meta property="twitter:card" content="summary" />
-  <meta property="twitter:site" content="송설화의 포트폴리오" />
-  <meta property="twitter:title" content="Intro" />
-  <meta property="twitter:description" content="GDD, UXUI디자인, 레벨디자인 등 그외 모든 게임기획서 모음." />
-  <meta property="twitter:image" content="./images/name_seo.png" />
+  <meta property="twitter:site" content="사이트 이름을 적으세요." />
+  <meta property="twitter:title" content="타이틀 이름을 적으세요." />
+  <meta property="twitter:description" content="자신의 사이트에 대한 세부 설명을 적으세요." />
+  <meta property="twitter:image" content="./images/name_seo.jpg" />
   <!-- 아텐츠주소 대신 자신의 웹페이지 주소로 바꾸세요 -->
-  <meta property="twitter:url" content="https://atentsgamedesignsite19.netlify.app" />
-<!-- 트위터, 엑스 용 -->
+  <meta property="twitter:url" content="https://atentsgame.com" />
+  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
   <link rel="icon" href="/favicon.ico" />
   <link rel="stylesheet" href="./main.css">
-  <!-- <link rel="stylesheet" href="/main.css"> -->
-  <!-- <script defer src="/main.js" ></script> -->
-  <!-- <script defer src="./main.js"></script> -->
 </head>
 
 <body>
-  <!-- <canvas id="canvas"></canvas> -->
-<!-- 
-  <div style="position: fixed; z-index: -1; width: 100%; height: 100%;">
-    <iframe width="100%" height="100%" 
-    src="https://www.youtube.com/embed/Zt54wdS2Lfg?si=9T6p7W0qmHjZK7Sw&autoplay=1&loop=1&mute=1&playlist=Zt54wdS2Lfg" 
-    title="YouTube video player" 
-    frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
-    </iframe>
+  <div class="text-box">
+    <div class="heading">송설화의 포트폴리오</div>
+    <div class="button-wrapper">
+      <div class="button"><a href="/pages/mainpage.html">기획서보기</a></div>
+    </div>
   </div>
-   -->
-  <div style="position: fixed; z-index: -1; width: 100%; height: 100%;" >
-    <!-- <iframe width="100%" height="100%" src="https://www.youtube.com/embed/pKMPQ85Ilu4?si=y_7mDklYCB31kJk9&autoplay=1&loop=1&mute=1&playlist=pKMPQ85Ilu4" 
-    title="YouTube video player" 
-    frameborder="0" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-    allowfullscreen>
-    </iframe> -->
-    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/hbI1BPgXTQI?si=gqyKLqAVzpz7Oqap&autoplay=1&mute=1&loop=1&playlist=hbI1BPgXTQI"
-    title="YouTube video player" 
-    frameborder="0" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-    allowfullscreen>
+  <script src="/three.min.js"></script>
+  <script>
+    let scene, camera, renderer, cloudParticles = [],
+      flash, rain, rainGeo, rainCount = 15000;
 
-    </iframe>
-  </div>
-  <div>
-    <a id="portfolio-link" href="/pages/mainpage.html">송설화의 포트폴리오</a>
-  </div>
+    function init() {
+
+      scene = new THREE.Scene();
+      camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 1000);
+      camera.position.z = 1;
+      camera.rotation.x = 1.16;
+      camera.rotation.y = -0.12;
+      camera.rotation.z = 0.27;
+
+      ambient = new THREE.AmbientLight(0x555555);
+      scene.add(ambient);
+
+      directionalLight = new THREE.DirectionalLight(0xffeedd);
+      directionalLight.position.set(0, 0, 1);
+      scene.add(directionalLight);
+
+      flash = new THREE.PointLight(0x062d89, 30, 500, 1.7);
+      flash.position.set(200, 300, 100);
+      scene.add(flash);
+
+      renderer = new THREE.WebGLRenderer();
+      scene.fog = new THREE.FogExp2(0x11111f, 0.002);
+      renderer.setClearColor(scene.fog.color);
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      document.body.appendChild(renderer.domElement);
+
+      rainGeo = new THREE.Geometry();
+      for (let i = 0; i < rainCount; i++) {
+        rainDrop = new THREE.Vector3(
+          Math.random() * 400 - 200,
+          Math.random() * 500 - 250,
+          Math.random() * 400 - 200
+        );
+        rainDrop.velocity = {};
+        rainDrop.velocity = 0;
+        rainGeo.vertices.push(rainDrop);
+      }
+      rainMaterial = new THREE.PointsMaterial({
+        color: 0xaaaaaa,
+        size: 0.1,
+        transparent: true
+      });
+      rain = new THREE.Points(rainGeo, rainMaterial);
+      scene.add(rain);
+      let loader = new THREE.TextureLoader();
+      loader.load("smoke.png", function (texture) {
+
+        cloudGeo = new THREE.PlaneBufferGeometry(500, 500);
+        cloudMaterial = new THREE.MeshLambertMaterial({
+          map: texture,
+          transparent: true
+        });
+
+        for (let p = 0; p < 25; p++) {
+          let cloud = new THREE.Mesh(cloudGeo, cloudMaterial);
+          cloud.position.set(
+            Math.random() * 800 - 400,
+            500,
+            Math.random() * 500 - 450
+          );
+          cloud.rotation.x = 1.16;
+          cloud.rotation.y = -0.12;
+          cloud.rotation.z = Math.random() * 360;
+          cloud.material.opacity = 0.6;
+          cloudParticles.push(cloud);
+          scene.add(cloud);
+        }
+        animate();
+      });
+    }
+
+    function animate() {
+      cloudParticles.forEach(p => {
+        p.rotation.z -= 0.002;
+      });
+      rainGeo.vertices.forEach(p => {
+        p.velocity -= 0.1 + Math.random() * 0.1;
+        p.y += p.velocity;
+        if (p.y < -200) {
+          p.y = 200;
+          p.velocity = 0;
+        }
+      });
+      rainGeo.verticesNeedUpdate = true;
+      rain.rotation.y += 0.002;
+      if (Math.random() > 0.93 || flash.power > 100) {
+        if (flash.power < 100)
+          flash.position.set(
+            Math.random() * 400,
+            300 + Math.random() * 200,
+            100
+          );
+        flash.power = 50 + Math.random() * 500;
+      }
+      renderer.render(scene, camera);
+      requestAnimationFrame(animate);
+    }
+    init();
+  </script>
 </body>
-
 
 </html>

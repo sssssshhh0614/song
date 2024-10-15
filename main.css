@@ -1,35 +1,49 @@
 body {
-  padding: 0;
-  margin: 0;
+  width: 100vw;
   height: 100vh;
+  margin: 0;
+  background: black;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-/* 
 canvas {
-  position: fixed;
-  left: 0;
+  position: absolute;
   top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #000;
-  background-image: linear-gradient(
-    to top,
-    rgba(0, 169, 217, 0.7) 0%,
-    rgba(0, 169, 217, 0.5) 5%,
-    rgba(0, 169, 217, 0) 70%
-  );
-} */
-
-#portfolio-link {
-  position: fixed;
-  left: 5%;
-  /* right: 80%; */
-  bottom: 8%;
-  /* top: 5%; */
-  color: yellow;
-  text-decoration: none;
-  font-size: 2rem;
-  font-family: 'Times New Roman', Times, serif;
+  left: 0;
+  z-index: -1;
+}
+.text-box {
+  font-size: 60px;
+  font-family: "Raleway", sans-serif;
+  letter-spacing: 7px;
+  word-spacing: 12px;
+  text-transform: uppercase;
+  color: rgb(238, 238, 238);
+}
+.button-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  flex-direction: row;
+}
+.button {
+  display: inline-block;
+  font-size: 16px;
   font-weight: bold;
-  /* font-style: italic; */
-  /* z-index: 1; */
+  padding: 15px;
+  margin-left: 20px;
+  margin-right: 20px;
+  word-spacing: normal;
+  letter-spacing: 5px;
+  border: 1px solid white;
+  /* background: black; */
+  background: none;
+  cursor: pointer;
+}
+.button a {
+  text-decoration: none;
+  color: yellow;
 }
